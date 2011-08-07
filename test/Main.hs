@@ -11,8 +11,6 @@ import qualified Data.ByteString.Lazy.Char8 as L
 import Control.Monad (when)
 import System.Exit (exitFailure)
 
-import System.IO.Temp
-
 -- | Run an action in a fresh blob-storage, then tear it
 -- down.
 withTempStore :: (BlobStorage -> IO a) -> IO a
