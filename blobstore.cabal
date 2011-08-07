@@ -31,7 +31,7 @@ Library
                        binary == 0.5.*, pureMD5 == 2.1.*, bytestring == 0.9.*
   Hs-source-dirs:      src
 
-Test-Suite tessts
+Test-Suite tests
     Type:              exitcode-stdio-1.0
     Main-is:           Main.hs
     Hs-source-dirs:    test
