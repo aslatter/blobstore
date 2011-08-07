@@ -1,0 +1,36 @@
+Name:                blobstore
+Version:             0.1.0
+Synopsis:            Persistent storage for blobs of data.
+
+Description:         
+
+License:             BSD3
+License-file:        LICENSE
+
+
+Author:              Antoine Latter
+Maintainer:          aslatter@gmail.com
+
+Copyright:           2011 Antoine Latter
+                     2008-2009 Duncan Coutts
+
+Category:            Database
+Build-type:          Simple
+
+-- Extra-source-files:  
+
+Cabal-version:       >=1.8
+
+
+Library
+  Exposed-modules:     Database.BlobStorage
+  Build-depends:       base, directory == 1.1.*, filepath == 1.2.*,
+                       binary == 0.5.*, pureMD5 == 2.1.*, bytestring == 0.9.*
+  Hs-source-dirs:      src
+
+Test-Suite tessts
+    Type:              exitcode-stdio-1.0
+    Main-is:           Main.hs
+    Hs-source-dirs:    test
+    Build-depends:     base, blobstore, HUnit == 1.2.*, bytestring == 0.9.*,
+                       temporary == 1.1.*
