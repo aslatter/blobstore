@@ -1,4 +1,4 @@
-* BlobStore
+# BlobStore
 
 This library provides a file-system based database for blobs of binary data.
 
