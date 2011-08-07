@@ -36,7 +36,8 @@ Test-Suite tests
     Main-is:           Main.hs
     Hs-source-dirs:    test
     Build-depends:     base == 4.*, blobstore, HUnit == 1.2.*, bytestring == 0.9.*,
-                       temporary == 1.1.*
+                       temporary == 1.1.*, test-framework == 0.4.*,
+                       test-framework-hunit == 0.2.*
 
 Source-repository head
   type:     git

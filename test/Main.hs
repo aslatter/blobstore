@@ -5,6 +5,8 @@ import System.IO.Temp (withSystemTempDirectory)
 import Database.BlobStorage
 
 import Test.HUnit
+import Test.Framework
+import Test.Framework.Providers.HUnit
 
 import qualified Data.ByteString.Lazy.Char8 as L
 
@@ -24,12 +26,12 @@ addAndCheck bytes store
   bytes' <- fetch store ident
   assert (bytes == bytes')
 
-insertRetrieveEmpty :: IO ()
+insertRetrieveEmpty :: Assertion
 insertRetrieveEmpty =
     withTempStore $ 
     addAndCheck (L.pack "The quick brown fox jumped over the lazy dog.")
 
-insertRetrieveNonEmpty :: IO ()
+insertRetrieveNonEmpty :: Assertion
 insertRetrieveNonEmpty =
     withTempStore $ \store -> do
       addAndCheck (L.pack "The quick brown fox jumped over the lazy dog.") store
@@ -38,15 +40,7 @@ insertRetrieveNonEmpty =
 main :: IO ()
 main = do
   -- run tests
-  count <- runTestTT $
-           test [ insertRetrieveEmpty
-                , insertRetrieveNonEmpty
-                ]
-  -- print results
-  putStrLn (showCounts count)
-
-  -- exit with failure if anything went poorly
-  when (errors count /= 0)
-       exitFailure
-  when (failures count /= 0)
-       exitFailure
+  defaultMain $
+       [ testCase "Insert/retrieve empty" insertRetrieveEmpty
+       , testCase "Insert/retrieve non-empty" insertRetrieveNonEmpty
+       ]
