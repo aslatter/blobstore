@@ -2,7 +2,10 @@ Name:                blobstore
 Version:             0.1.0
 Synopsis:            Persistent storage for blobs of data.
 
-Description:         
+Description:         A quasi-functional storage for blobs of data.
+                     .
+                     Binary data is added, and may be retrieved but not
+                     modified nor deleted.
 
 License:             BSD3
 License-file:        LICENSE
@@ -24,7 +27,7 @@ Cabal-version:       >=1.8
 
 Library
   Exposed-modules:     Database.BlobStorage
-  Build-depends:       base, directory == 1.1.*, filepath == 1.2.*,
+  Build-depends:       base == 4.*, directory == 1.1.*, filepath == 1.2.*,
                        binary == 0.5.*, pureMD5 == 2.1.*, bytestring == 0.9.*
   Hs-source-dirs:      src
 
@@ -32,5 +35,10 @@ Test-Suite tessts
     Type:              exitcode-stdio-1.0
     Main-is:           Main.hs
     Hs-source-dirs:    test
-    Build-depends:     base, blobstore, HUnit == 1.2.*, bytestring == 0.9.*,
+    Build-depends:     base == 4.*, blobstore, HUnit == 1.2.*, bytestring == 0.9.*,
                        temporary == 1.1.*
+
+Source-repository head
+  type:     git
+  location: http://github.com/aslatter/blobstore.git
+
