@@ -27,7 +27,7 @@ Cabal-version:       >=1.8
 
 Library
   Exposed-modules:     Database.BlobStorage
-  Build-depends:       base == 4.*, directory == 1.1.*, filepath == 1.2.*,
+  Build-depends:       base == 4.*, directory == 1.1.*, filepath >= 1.2 && < 1.4,
                        binary == 0.5.*, pureMD5 == 2.1.*, bytestring == 0.9.*
   Hs-source-dirs:      src
 
